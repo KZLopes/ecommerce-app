@@ -1,21 +1,24 @@
 package com.carloslopes.ecommerce.api.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Product {
   
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private Long productId;
   
   private String name;
   private String code;
-  private String details;
-  
-  @OneToOne(mappedBy = "price")
-  private PriceTable price;
+  private String description;
+  private String image;
+  private double price;
+  private int stock;
   
 }
